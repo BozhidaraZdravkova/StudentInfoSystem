@@ -1,0 +1,82 @@
+﻿@model UserLogin.Models.Users
+@{
+    Layout = null;
+    if (Session["UserId"] == null)
+    {
+      Response.Redirect("~/Login/Index");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+    <style>
+        #table-1 {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #000000;
+            padding: 10px 10px; 
+            background-color: #e6f9ff;
+        }
+
+        h1 {
+            background-color: #006080;
+            color: white;
+            width: 100%;
+            font-family: "Courier New";
+            text-align: center;
+            height: 100px;
+        }
+        body {
+            background: #ccf3ff;
+        }
+        a {
+            font-size: 20px;
+            font-family: 'Courier New', sans-serif;
+            padding: 20px 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        <h1>User Info</h1>
+        <table id="table-1">
+            <tr>
+                <th>ID</th>
+                <td>@Session["UserId"]</td>
+
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>@Session["Username"]</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>@Session["Password"]</td>
+            </tr>
+            <tr>
+                <th>Faculty Number</th>
+                <td>@Session["Fnumber"] </td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>@Session["Role"]</td>
+            </tr>
+            <tr>
+                <th>Date created</th>
+                <td>@Session["Created"]</td>
+            </tr>
+            <tr>
+                <th>Active until</th>
+                <td>@Session["Active"]</td>
+            </tr>
+        </table>
+        <a href="@Url.Action("Logout", "Login")" >LOGOUT</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+﻿@model UserLogin.Models.Users
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #000000;
+            padding: 10px 10px;
+            background-color: #e6f9ff;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+
+        .head {
+            background-color: #006080;
+            color: white;
+            width: 100%;
+            font-family: "Courier New";
+            text-align: center;
+            height: 100px;
+        }
+
+        body {
+            background: #ccf3ff;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+
+
+    <div class="head">
+        <h1>User Login project in MVC architecture</h1>
+    </div>
+
+    
+        <div id="login-div">
+            @using (Html.BeginForm("Authorise", "Login", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>Login</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.name)</td>
+                        <td>@Html.EditorFor(model => model.name)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.ValidationMessageFor(model => model.name)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.pass)</td>
+                        <td>@Html.PasswordFor(model => model.pass)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.ValidationMessageFor(model => model.pass)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label class="field-validation-error">@Html.DisplayFor(model => model.errMessage)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="LOGIN" />
+                            <input type="reset" value="CLEAR" />
+                        </td>
+                    </tr>
+                </table>
+            }
+
+            <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        </div>
+   
+
+</body>
+</html>

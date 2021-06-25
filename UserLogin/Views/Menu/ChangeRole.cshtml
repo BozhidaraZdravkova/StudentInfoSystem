@@ -1,0 +1,74 @@
+﻿@model UserLogin.Models.Users
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ChangeRole</title>
+    <style>
+        h1 {
+            background-color: #006080;
+            color: white;
+            width: 100%;
+            font-family: "Courier New";
+            text-align: center;
+            height: 60px;
+        }
+        body {
+            background: #ccf3ff;
+        }
+        #table-1 {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #000000;
+            padding: 10px 10px;
+            background-color: #e6f9ff;
+        }
+        #table-2{
+            position:absolute;
+            left:43%;
+            top:46%;
+            padding: 40px 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Role", "Menu" , FormMethod.Post))
+        { 
+        <h1>Change User Role</h1>
+        <table id="table-1">
+            <tr>
+                <th>Username:</th>
+                <td>@Html.EditorFor(model => model.name)</td>
+            </tr>
+            <tr>
+                <th>New role:</th>
+                <td>@Html.EditorFor(model => model.role)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table id="table-2">
+            <tr>
+                <td>
+                    <input type="submit" value="SAVE" />
+                    
+                </td>
+                
+            </tr>
+
+        </table>
+        <a href="@Url.Action("IndexRole", "Home")">BACK</a>
+         }
+    </div>
+</body>
+</html>
